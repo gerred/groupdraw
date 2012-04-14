@@ -1,5 +1,11 @@
 @import "css/bootstrap.min.css";
 body{background:url("img/first_aid_kit.png");}
+body .block{width:16px;height:16px;border:1px solid #000;margin-right:5px;display:inline-block;}
+body .block.red{background-color:#f00}
+body .block.green{background-color:#008000}
+body .block.blue{background-color:#00f}
+body .block.black{background-color:#000}
+body .block.white{background-color:#fff}
 body canvas{border:1px solid #000;margin-top:20px}
 body .container{color:#444;background:#fff;margin-top:40px;margin-bottom:40px;padding:40px 0 0;border:1px solid #999;}
 body .container header h1{text-align:center;font-size:76px;text-shadow:0 2px 4px rgba(0,0,0,0.15);line-height:76px}

@@ -1,6 +1,12 @@
 extends layout
 
 block content
+  .blocks
+    .block.red(data-color='#ff0000')
+    .block.blue(data-color='#0000ff')
+    .block.green(data-color='#00ff00')
+    .black.block(data-color='#000000')
+    .white.block(data-color='#ffffff')
   canvas#canvas(width=400, height=400)
   form(class='form')
     label(name='name') Annonate With Me!

@@ -1,3 +1,22 @@
+var util = {};
+
+util.getMousePos = function getMousePos(canvas, evt){
+    var obj = canvas;
+    var top = 0;
+    var left = 0;
+    while (obj && obj.tagName != 'BODY') {
+        top += obj.offsetTop;
+        left += obj.offsetLeft;
+        obj = obj.offsetParent;
+    }
+ 
+    var mouseX = evt.clientX - left + window.pageXOffset;
+    var mouseY = evt.clientY - top + window.pageYOffset;
+    return {
+        x: mouseX,
+        y: mouseY
+    };
+}
 jQuery(function($) {
     var canvas = document.getElementById('canvas'),
         context = canvas.getContext('2d'),
@@ -12,13 +31,12 @@ jQuery(function($) {
     socket.on('draw', function(data) {
         context.save();
         context.beginPath();
-        local_brush_color = data.shift();
         initialPoint = data.shift();
         context.moveTo(initialPoint[0], initialPoint[1]);
         for (var i = 0; i < data.length; i++) {
             context.lineTo(data[i][0], data[i][1]);
         }
-        context.strokeStyle = local_brush_color;
+        context.strokeStyle = brush_color;
         context.stroke();
         context.closePath();
         context.restore();
@@ -41,7 +59,6 @@ jQuery(function($) {
         position = util.getMousePos(canvas, e);
         context.strokeStyle = brush_color;
         context.moveTo(position.x, position.y);
-        buffer.push(brush_color)
         buffer.push([position.x,position.y]);
         canvas.addEventListener('mousemove', onMouseMove, false);
     }, false);
