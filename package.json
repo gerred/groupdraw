@@ -1,0 +1,17 @@
+{
+    "name": "gerred-hackfest",
+    "private": true,
+    "version": "0.0.1",
+    "author": "Gerred Dillon <hello@gerred.com>",
+    "dependencies": {
+        "express": "latest",
+        "jade": "latest",
+        "stylus": "latest",
+        "nib": "latest",
+        "socket.io": "latest"
+    },
+    "devDependencies": {
+        "grunt": "latest",
+        "node-dev": "latest"
+    }
+}
