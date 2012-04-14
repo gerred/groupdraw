@@ -20,7 +20,19 @@ jQuery(function($) {
         context.stroke();
         context.closePath();
         context.restore();
-    })
+    });
+
+    socket.on('imageload', function(data) {
+        image = new Image();
+        image.src = data.url
+        image.onload = function() {
+            $('#canvas').attr('width', data.width);
+            $('#canvas').attr('height', data.height);
+            context.save();
+            context.drawImage(image, 0, 0, image.width, image.height, 0, 0, data.width, data.height);
+            context.restore();
+        }
+    });
 
     canvas.addEventListener('mousedown', function(e) {
         context.beginPath();
@@ -43,4 +55,18 @@ jQuery(function($) {
         context.stroke();
         buffer.push([mouse.x, mouse.y]);
     }
+
+    $('form').on('submit', function(e) {
+        e.preventDefault();
+        image = new Image();
+        image.src = $('#name').val();
+        image.onload = function() {
+            socket.emit('imageload', {width: image.width*.75, height: image.height*.75, url: image.src})
+            $('#canvas').attr('width', image.width*.75);
+            $('#canvas').attr('height', image.height*.75);
+            context.save();
+            context.drawImage(image, 0, 0, image.width, image.height, 0, 0, image.width*0.75, image.height*0.75);
+            context.restore();
+        }
+    })
 });

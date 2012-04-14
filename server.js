@@ -36,6 +36,10 @@ io.sockets.on('connection', function(socket) {
     socket.on('draw', function(data) {
         socket.broadcast.emit('draw', data);
     })
+
+    socket.on('imageload', function(data){
+        socket.broadcast.emit('imageload', data);
+    })
 });
 
 console.log('Server listenining on port %d in %s mode',
