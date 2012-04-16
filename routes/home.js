@@ -5,6 +5,6 @@ module.exports = function(app) {
     });
 
     app.get('/:id', function(req, res) {
-        request('http://gerred.showoff.io/' + req.params.id).pipe(res);
+        request('http://66.228.53.55:3000/' + req.params.id).pipe(res);
     });
 }
