@@ -6,7 +6,7 @@ body .block.green{background-color:#008000}
 body .block.blue{background-color:#00f}
 body .block.black{background-color:#000}
 body .block.white{background-color:#fff}
-body canvas{border:1px solid #000;margin-top:20px}
+body canvas{border:1px solid #000;margin-top:20px;overflow:scroll}
 body .container{color:#444;background:#fff;margin-top:40px;margin-bottom:40px;padding:40px 0 0;border:1px solid #999;}
 body .container header h1{text-align:center;font-size:76px;text-shadow:0 2px 4px rgba(0,0,0,0.15);line-height:76px}
 section{text-align:center;padding:0 0 70px;}

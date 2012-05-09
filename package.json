@@ -1,17 +1,21 @@
 {
   "name": "groupdraw",
   "subdomain": "groupdraw",
+  "author": "Gerred Dilon <hello@gerred.com>",
   "scripts": {
     "start": "server.js"
   },
-  "version": "0.1.0",
+  "version": "0.1.0-14",
   "engines": {
-    "node": "0.6.x"
+    "node": "0.6.x",
+    "npm": "latest"
   },
   "dependencies": {
     "nib": "0.4.x",
     "stylus": "0.25.x",
     "express": "2.5.x",
-    "socket.io": "0.9.x"
+    "socket.io": "0.9.x",
+    "request": "latest",
+    "jade": "~0.26.0"
   }
 }

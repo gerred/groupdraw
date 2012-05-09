@@ -3,8 +3,11 @@ module.exports = function(grunt) {
         min: {
             main: {
                 src: [
+                'assets/js/uuid.js',
                 'assets/js/util.js',
-                'assets/js/main.js'
+                'assets/js/main.js',
+                'assets/js/arrow.js',
+                'assets/js/screenshot.js'
                 ],
                 dest: 'public/js/main.min.js'
             }

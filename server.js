@@ -7,11 +7,6 @@ var express = require('express'),
 var app = express.createServer(),
     io = require('socket.io').listen(app);
 
-io.configure(function() {
-    io.set('transports', ['xhr-polling']);
-    io.set('polling duration', 1)
-})
-
 function compile(str, path) {
     return stylus(str)
         .set('filename', path)
@@ -44,6 +39,10 @@ io.sockets.on('connection', function(socket) {
 
     socket.on('imageload', function(data){
         socket.broadcast.emit('imageload', data);
+    })
+
+    socket.on('clear', function(data) {
+        socket.broadcast.emit('clear')
     })
 });
 
